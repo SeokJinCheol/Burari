@@ -10,9 +10,7 @@ public class MainController {
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView main(ModelAndView mv) {
-		
-		System.out.println("main controller");
-			
+		mv.setViewName("index");
 		return mv;
 	}
 }
