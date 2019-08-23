@@ -13,8 +13,8 @@ import javax.validation.constraints.Email;
 @Table(name= "USER")
 public class UserVO {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ")
-	@SequenceGenerator(name="USER_SEQ", sequenceName="USER_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_user")
+	@SequenceGenerator(name="SEQ_user", sequenceName="SEQ_user", allocationSize=1)
 	private Integer id;
 	
 	@Column

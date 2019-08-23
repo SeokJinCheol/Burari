@@ -6,4 +6,5 @@ import com.project.burari.vo.UserVO;
 
 public interface UserRepository extends JpaRepository<UserVO, Long> {
 	UserVO findById(Integer id);
+	UserVO findByName(String name);
 }
