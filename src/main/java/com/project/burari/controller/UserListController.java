@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.burari.core.controller.BaseController;
 import com.project.burari.repository.UserRepository;
-import com.project.burari.util.BaseController;
 
 @Controller
 @CrossOrigin

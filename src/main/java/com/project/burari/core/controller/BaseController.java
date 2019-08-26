@@ -1,4 +1,4 @@
-package com.project.burari.util;
+package com.project.burari.core.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +18,7 @@ public class BaseController {
 		
 		mv.addObject("message", message);
 		mv.addObject("success", true);
-		mv.setViewName("jsonview");
+		mv.setViewName("jsonView");
 		
 		return mv;
 	}

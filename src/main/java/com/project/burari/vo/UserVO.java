@@ -23,6 +23,9 @@ public class UserVO {
 	@Column
 	@Email
 	private String email;
+	
+	@Column
+	private String password;
 
 	public Integer getId() {
 		return id;
@@ -48,10 +51,17 @@ public class UserVO {
 		this.email = email;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return "UserVO [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
 	}
-	
-	
+
 }
