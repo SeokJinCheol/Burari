@@ -12,14 +12,14 @@ import javax.persistence.Table;
 @Table(name="FIELDS")
 public class FieldVO {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_field")
-	@SequenceGenerator(name="SEQ_field", sequenceName="SEQ_field", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_FIELDS")
+	@SequenceGenerator(name="SEQ_FIELDS", sequenceName="SEQ_FIELDS", allocationSize=1)
 	private Integer id;
 	
-	@Column
+	@Column(name="FIELD_NAME")
 	private String name;
 	
-	@Column
+	@Column(name="FIELD_TYPE")
 	private String type;
 
 	public Integer getId() {

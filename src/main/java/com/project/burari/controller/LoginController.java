@@ -20,21 +20,22 @@ import com.project.burari.repository.UserRepository;
 @CrossOrigin
 public class LoginController extends BaseController {
 	
-	HttpSession session = null;
-	
 	@Autowired
 	UserRepository userRepository;
+	private HttpSession session;
 	
 	@RequestMapping(value="/Login", method = RequestMethod.GET)
 	public ModelAndView Login(@RequestParam HashMap<String, Object> userInfo, HttpServletRequest request) throws Exception{
-		
 		String email = (String)userInfo.get("email");
-		System.out.println(userRepository.findByEmail(email).getId());
-		
 		session = request.getSession();
-		
 		session.setAttribute("userId", userRepository.findByEmail(email).getId());
-		
+		return getReturnObject(userRepository.findByEmail(email).getId());
+	}
+	
+	
+	@RequestMapping(value="/logincheck", method=RequestMethod.POST)
+	public ModelAndView logincheck(HttpServletRequest request) throws Exception {
+		System.out.println(request.getSession().getAttribute("userId"));
 		return getReturnObject(null);
 	}
 }

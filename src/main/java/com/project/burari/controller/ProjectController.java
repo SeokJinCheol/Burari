@@ -1,7 +1,10 @@
 package com.project.burari.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +16,7 @@ import com.project.burari.repository.UserRepository;
 import com.project.burari.vo.ProjectVO;
 
 @Controller
+@CrossOrigin
 public class ProjectController extends BaseController{
 	
 	@Autowired
@@ -22,12 +26,9 @@ public class ProjectController extends BaseController{
 	UserRepository userRepository;
 
 	@RequestMapping(value="/project", method=RequestMethod.POST)
-	public ModelAndView createProject(@RequestBody ProjectVO vo) throws Exception{
-		System.out.println(vo);
-		vo.setUser(userRepository.findById(5));
+	public ModelAndView createProject(@RequestBody ProjectVO vo, HttpServletRequest request) throws Exception{		
+		vo.setUser(userRepository.findById((Integer)request.getSession().getAttribute("userId")));
 		projectRepository.save(vo);
-		
-		
 		
 		return getReturnObject("");
 	}

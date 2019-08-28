@@ -2,7 +2,6 @@ package com.project.burari.vo;
 
 import java.sql.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,27 +10,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PROJECT")
+@Table(name="PROJECTS")
 public class ProjectVO {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_project")
-	@SequenceGenerator(name="SEQ_project", sequenceName="SEQ_project", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_PROJECTS")
+	@SequenceGenerator(name="SEQ_PROJECTS", sequenceName="SEQ_PROJECTS", allocationSize=1)
 	private Integer id;
 	
 	@ManyToOne(targetEntity=UserVO.class, fetch=FetchType.EAGER)
-	@JoinColumn(name="create_user")
+	@JoinColumn(name="USER_ID")
 	private UserVO user;
 	
-	@Column(name="project_name")
+	@Column(name="PROJECT_NAME")
 	private String name;
 	
-	@Column(name="expirate_date")
+	@Column(name="PROJECT_EXPIRATE_DATE")
 	private Date date;
 
 	public Integer getId() {

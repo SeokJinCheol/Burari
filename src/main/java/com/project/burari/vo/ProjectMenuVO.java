@@ -1,8 +1,5 @@
 package com.project.burari.vo;
 
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,26 +7,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MENU")
-public class MenuVO {
+@Table(name="PROJECT_MENUS")
+public class ProjectMenuVO {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_menu")
-	@SequenceGenerator(name="SEQ_menu", sequenceName="SEQ_menu", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_PROJECT_MENUS")
+	@SequenceGenerator(name="SEQ_PROJECT_MENUS", sequenceName="SEQ_PROJECT_MENUS", allocationSize=1)
 	private Integer id;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL)
-	@JoinColumn(name="create_user")
-	private Collection<ProjectVO> project;
+	@ManyToOne(targetEntity=ProjectVO.class, fetch=FetchType.EAGER)
+	@JoinColumn(name="PROJECT_ID")
+	private ProjectVO project;
 	
-	@Column
+	@Column(name="PROJECT_MENU_NAME")
 	private String name;
 	
-	@Column
+	@Column(name="PROJECT_MENU_INDEX")
 	private int index;
 
 	public Integer getId() {
@@ -40,11 +37,11 @@ public class MenuVO {
 		this.id = id;
 	}
 
-	public Collection<ProjectVO> getProject() {
+	public ProjectVO getProject() {
 		return project;
 	}
 
-	public void setProject(Collection<ProjectVO> project) {
+	public void setProject(ProjectVO project) {
 		this.project = project;
 	}
 
@@ -68,6 +65,5 @@ public class MenuVO {
 	public String toString() {
 		return "MenuVO [id=" + id + ", project=" + project + ", name=" + name + ", index=" + index + "]";
 	}
-	
 	
 }
