@@ -17,7 +17,6 @@ import com.project.burari.repository.UserRepository;
 import com.project.burari.vo.ProjectVO;
 
 @Controller
-@CrossOrigin
 public class ProjectController extends BaseController{
 	
 	@Autowired

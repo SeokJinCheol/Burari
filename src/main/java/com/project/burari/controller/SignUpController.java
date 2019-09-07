@@ -13,7 +13,6 @@ import com.project.burari.service.IUserService;
 import com.project.burari.vo.UserVO;
 
 @Controller
-@CrossOrigin
 public class SignUpController extends BaseController{
 	
 	@Autowired

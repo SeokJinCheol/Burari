@@ -17,7 +17,6 @@ import com.project.burari.core.controller.BaseController;
 import com.project.burari.repository.UserRepository;
 
 @Controller
-@CrossOrigin
 public class LoginController extends BaseController {
 	
 	@Autowired

@@ -14,7 +14,6 @@ import com.project.burari.core.controller.BaseController;
 import com.project.burari.repository.UserRepository;
 
 @Controller
-@CrossOrigin
 public class UserListController extends BaseController {
 	
 	@Autowired
