@@ -1,6 +1,5 @@
 package com.project.burari.controller;
 
-import java.net.Inet4Address;
 import java.net.InetAddress;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +12,7 @@ public class MainController {
 	@GetMapping(value="/")
 	public ModelAndView main(ModelAndView mv) throws Exception {
 		
-		InetAddress local = Inet4Address.getLocalHost();
+		InetAddress local = InetAddress.getLocalHost();
 		String ip = local.getHostAddress();
         
         mv.setViewName("index");
