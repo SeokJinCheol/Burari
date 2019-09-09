@@ -23,7 +23,8 @@ public class ProjectController extends BaseController{
 	UserRepository userRepository;
 
 	@PostMapping("/project")
-	public ModelAndView createProject(@RequestBody ProjectVO vo, HttpServletRequest request) throws Exception{		
+	public ModelAndView createProject(@RequestBody ProjectVO vo, HttpServletRequest request) throws Exception{
+		System.out.println((Integer)request.getSession().getAttribute("userId"));
 		vo.setUser(userRepository.findById((Integer)request.getSession().getAttribute("userId")));
 		projectRepository.save(vo);
 		
