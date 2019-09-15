@@ -13,7 +13,7 @@ import com.project.burari.vo.UserVO;
 
 @Service("UserService")
 @Transactional
-public class UserService implements IUserService{
+public class UserServiceImpl implements IUserService{
 	
 	@Autowired
 	JpaCRUDRepository<UserVO> CRUDrepository;
