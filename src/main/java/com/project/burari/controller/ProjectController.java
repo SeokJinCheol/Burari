@@ -28,8 +28,7 @@ public class ProjectController extends BaseController{
 
 	@PostMapping("/api/project")
 	public ModelAndView createProject(@RequestBody ProjectVO vo, HttpServletRequest request) throws Exception{
-		System.out.println((Integer)request.getSession().getAttribute("userId"));
-		vo.setUser(userRepository.findById((Integer)request.getSession().getAttribute("userId")));
+		vo.setUser(userRepository.findById((Integer)jwtService.getMemberId()));
 		projectRepository.save(vo);
 		
 		return getReturnObject("");
@@ -37,9 +36,6 @@ public class ProjectController extends BaseController{
 	
 	@PostMapping("/api/projectlist")
 	public ModelAndView Projectlist(@RequestBody ProjectVO vo, HttpServletRequest request) throws Exception{
-		
-		System.out.println(jwtService.getMemberId());
-		
-		return getReturnObject("");
+		return getReturnObject(projectRepository.findByUser(userRepository.findById(jwtService.getMemberId())));
 	}
 }

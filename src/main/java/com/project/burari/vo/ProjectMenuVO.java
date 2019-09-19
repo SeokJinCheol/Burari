@@ -15,8 +15,7 @@ import javax.persistence.Table;
 @Table(name="PROJECT_MENUS")
 public class ProjectMenuVO {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_PROJECT_MENUS")
-	@SequenceGenerator(name="SEQ_PROJECT_MENUS", sequenceName="SEQ_PROJECT_MENUS", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@ManyToOne(targetEntity=ProjectVO.class, fetch=FetchType.EAGER)

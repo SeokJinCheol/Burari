@@ -11,9 +11,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="FIELDS")
 public class FieldVO {
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_FIELDS")
-	@SequenceGenerator(name="SEQ_FIELDS", sequenceName="SEQ_FIELDS", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name="FIELD_NAME")

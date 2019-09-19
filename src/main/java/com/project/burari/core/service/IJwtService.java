@@ -5,6 +5,6 @@ import java.util.Map;
 public interface IJwtService {
 	<T> String create(String key, T data, String subject);
 	Map<String, Object> get(String key);
-	long getMemberId();
+	Integer getMemberId();
 	boolean isUsable(String jwt);
 }
