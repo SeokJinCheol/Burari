@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
@@ -23,8 +22,11 @@ public class UserVO {
 	@Email
 	private String email;
 	
-	@Column(name="USER_PASSWORD")
-	private String password;
+	@Column(name="USER_SOCIAL_NAME")
+	private String socialName;
+	
+	@Column(name="USER_SOCIAL_ID")
+	private String socialId;
 
 	public Integer getId() {
 		return id;
@@ -50,17 +52,26 @@ public class UserVO {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSocialName() {
+		return socialName;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSocialName(String socialName) {
+		this.socialName = socialName;
+	}
+
+	public String getSocialId() {
+		return socialId;
+	}
+
+	public void setSocialId(String socialId) {
+		this.socialId = socialId;
 	}
 
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "UserVO [id=" + id + ", name=" + name + ", email=" + email + ", socialName=" + socialName + ", socialId="
+				+ socialId + "]";
 	}
 
 }

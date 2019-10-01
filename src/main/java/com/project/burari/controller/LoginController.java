@@ -30,7 +30,15 @@ public class LoginController extends BaseController {
 	public ModelAndView Login(@RequestBody UserVO vo, HttpServletRequest request) throws Exception{
 		String email = (String)vo.getEmail();
 		
-		String token = jwtService.create("member", userRepository.findByEmail(email), "user");
+		String token = "";
+		
+		if(userRepository.findByEmail(email) != null) {
+			token = jwtService.create("member", userRepository.findByEmail(email), "user");
+		} else {
+			userRepository.save(vo);
+			token = jwtService.create("member", userRepository.findByEmail(email), "user");
+		}
+		
 		
 		HashMap<String, Object> ObjectData = new HashMap<>();
 		
