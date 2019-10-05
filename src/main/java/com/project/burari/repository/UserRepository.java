@@ -11,5 +11,4 @@ public interface UserRepository extends JpaRepository<UserVO, Long> {
 	UserVO findById(Integer id);
 	UserVO findByName(String name);
 	UserVO findByEmail(String email);
-	UserVO findByEmailAndPassword(String email, String password);
 }
